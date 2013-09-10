@@ -6,6 +6,11 @@
   ExpiresDefault A1209600
 
 </IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|mp3|js|css)$">
+    Header set Cache-Control "max-age=604800, public"
+  </FilesMatch>
+</IfModule>
 <IfModule mod_rewrite.c>
   RewriteEngine on
   RewriteRule "(^|/)\." - [F]
